@@ -22,49 +22,49 @@ public class BTFRecipes implements RecipeEntrypoint {
 			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,0)
 			.create("white_chop_board", new ItemStack(ItemsList.ITEM_WHITE_CHOPPING_BOARD, 1));
 		RecipeBuilder.Shaped(modId, "", "", "SSS")
-			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,1)
+			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,16)
 			.create("orange_chop_board", new ItemStack(ItemsList.ITEM_ORANGE_CHOPPING_BOARD, 1));
 		RecipeBuilder.Shaped(modId, "", "", "SSS")
-			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,2)
+			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,32)
 			.create("magenta_chop_board", new ItemStack(ItemsList.ITEM_MAGENTA_CHOPPING_BOARD, 1));
 		RecipeBuilder.Shaped(modId, "", "", "SSS")
-			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,3)
+			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,48)
 			.create("lightblue_chop_board", new ItemStack(ItemsList.ITEM_LIGHTBLUE_CHOPPING_BOARD, 1));
 		RecipeBuilder.Shaped(modId, "", "", "SSS")
-			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,4)
+			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,64)
 			.create("yellow_chop_board", new ItemStack(ItemsList.ITEM_YELLOW_CHOPPING_BOARD, 1));
 		RecipeBuilder.Shaped(modId, "", "", "SSS")
-			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,5)
+			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,80)
 			.create("lime_chop_board", new ItemStack(ItemsList.ITEM_LIME_CHOPPING_BOARD, 1));
 		RecipeBuilder.Shaped(modId, "", "", "SSS")
-			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,6)
+			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,96)
 			.create("pink_chop_board", new ItemStack(ItemsList.ITEM_PINK_CHOPPING_BOARD, 1));
 		RecipeBuilder.Shaped(modId, "", "", "SSS")
-			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,7)
+			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,112)
 			.create("gray_chop_board", new ItemStack(ItemsList.ITEM_GRAY_CHOPPING_BOARD, 1));
 		RecipeBuilder.Shaped(modId, "", "", "SSS")
-			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,8)
+			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,128)
 			.create("silver_chop_board", new ItemStack(ItemsList.ITEM_SILVER_CHOPPING_BOARD, 1));
 		RecipeBuilder.Shaped(modId, "", "", "SSS")
-			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,9)
+			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,144)
 			.create("cyan_chop_board", new ItemStack(ItemsList.ITEM_CYAN_CHOPPING_BOARD, 1));
 		RecipeBuilder.Shaped(modId, "", "", "SSS")
-			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,10)
+			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,160)
 			.create("purple_chop_board", new ItemStack(ItemsList.ITEM_PURPLE_CHOPPING_BOARD, 1));
 		RecipeBuilder.Shaped(modId, "", "", "SSS")
-			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,11)
+			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,176)
 			.create("blue_chop_board", new ItemStack(ItemsList.ITEM_BLUE_CHOPPING_BOARD, 1));
 		RecipeBuilder.Shaped(modId, "", "", "SSS")
-			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,12)
+			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,192)
 			.create("brown_chop_board", new ItemStack(ItemsList.ITEM_BROWN_CHOPPING_BOARD, 1));
 		RecipeBuilder.Shaped(modId, "", "", "SSS")
-			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,13)
+			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,208)
 			.create("green_chop_board", new ItemStack(ItemsList.ITEM_GREEN_CHOPPING_BOARD, 1));
 		RecipeBuilder.Shaped(modId, "", "", "SSS")
-			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,14)
+			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,224)
 			.create("red_chop_board", new ItemStack(ItemsList.ITEM_RED_CHOPPING_BOARD, 1));
 		RecipeBuilder.Shaped(modId, "", "", "SSS")
-			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,15)
+			.addInput('S', Blocks.SLAB_PLANKS_PAINTED,240)
 			.create("black_chop_board", new ItemStack(ItemsList.ITEM_BLACK_CHOPPING_BOARD, 1));
 
 	}
