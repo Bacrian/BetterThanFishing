@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "imbacrian.btf.mixins",
+  "compatibilityLevel": "JAVA_${java}",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "mixin.EntityFishingBobberMixin"
+  ],
+  "client": []
+}

@@ -1,0 +1,39 @@
+{
+	"schemaVersion": 1,
+	"id": "btf",
+	"version": "${version}",
+	"name": "Better Than Fishing",
+	"description": "This mod aims to help new BTA modders.",
+	"authors": [
+		"Bacrian / @imbacrian"
+	],
+	"contact": {
+		"homepage": "",
+		"sources": ""
+	},
+	"icon": "icon.png",
+	"license": "GPL-3.0",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"imbacrian.btf.BetterThanFishing"
+		],
+		"initModels": [
+			"imbacrian.btf.models.CommonRenderer"
+		],
+		"recipesReady": [
+			"imbacrian.btf.BTFRecipes"
+		]
+	},
+	"mixins": [
+		"btf.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=${fabricloader}",
+		"minecraft": "*",
+		"java": ">=${java}"
+	},
+	"suggests": {
+		"modmenu": ">=${modmenu}"
+	}
+}
