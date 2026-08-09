@@ -6,7 +6,9 @@
     "defaultRequire": 1
   },
   "mixins": [
-    "mixin.EntityFishingBobberMixin"
+    "accessor.SlotResultAccessor",
+    "mixin.EntityFishingBobberMixin",
+    "mixin.SlotResultMixin"
   ],
   "client": []
 }
