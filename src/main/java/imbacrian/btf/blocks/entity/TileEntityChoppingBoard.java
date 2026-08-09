@@ -1,7 +1,6 @@
 package imbacrian.btf.blocks.entity;
 
 import com.mojang.nbt.tags.CompoundTag;
-import imbacrian.btf.items.BoardColor;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.entity.EntityItem;
 import net.minecraft.core.item.Item;
@@ -14,16 +13,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class TileEntityChoppingBoard extends TileEntity {
 	private int heldItemId = 0;
-
-	private BoardColor color;
-
-	public TileEntityChoppingBoard() {
-		this.color = BoardColor.OAK;
-	}
-
-	public BoardColor getColor() {
-		return color;
-	}
 
 	public boolean isEmpty() {
 		return this.heldItemId == 0;
@@ -56,7 +45,7 @@ public class TileEntityChoppingBoard extends TileEntity {
 
 	@Override
 	public Packet getDescriptionPacket() {
-		return !this.isEmpty() ? new PacketTileEntityData(this) : null;
+		return new PacketTileEntityData(this);
 	}
 
 	@Override

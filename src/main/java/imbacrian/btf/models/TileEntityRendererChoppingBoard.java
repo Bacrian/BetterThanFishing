@@ -1,9 +1,6 @@
 package imbacrian.btf.models;
 
-import imbacrian.btf.BetterThanFishing;
-import imbacrian.btf.blocks.BlocksList;
 import imbacrian.btf.blocks.entity.TileEntityChoppingBoard;
-import imbacrian.btf.items.BoardColor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.option.GameSettings;
@@ -14,9 +11,11 @@ import net.minecraft.client.render.renderer.State;
 import net.minecraft.client.render.tessellator.TessellatorGeneral;
 import net.minecraft.client.render.tileentity.TileEntityRenderer;
 import net.minecraft.core.block.Block;
+import net.minecraft.core.block.IPainted;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.Direction;
+import net.minecraft.core.util.helper.DyeColor;
 import org.useless.dragonfly.data.entity.mojang.EntityGeometryMojangData;
 import org.useless.dragonfly.models.entity.StaticEntityModel;
 
@@ -34,27 +33,24 @@ public class TileEntityRendererChoppingBoard extends TileEntityRenderer<TileEnti
 		return boardModel;
 	}
 
-	private String getTexture(BoardColor color) {
-		return TEXTURE_PATH + color.getBoardColor() + ".png";
+	private String getTexture(TileEntityChoppingBoard tileEntity) {
+		if (tileEntity.worldObj != null) {
+			Block<?> block = tileEntity.worldObj.getBlockType(tileEntity.tilePos);
+			if (Block.getLogicClass(block) instanceof IPainted painted) {
+				DyeColor color = painted.fromMetadata(tileEntity.getBlockMeta());
+				return TEXTURE_PATH + color.colorID + ".png";
+			}
+		}
+		return TEXTURE_PATH + "oak.png";
 	}
 
 	private float getRotationFromMeta(int meta) {
-		Direction dir = Direction.fromId(meta);
-		if (dir == Direction.NORTH) return 180f;
-		if (dir == Direction.SOUTH) return 0f;
-		if (dir == Direction.WEST) return 90f;
-		if (dir == Direction.EAST) return -90f;
-		return 0f;
-	}
+		if (meta == 0) return 180f;  // NORTH
+		if (meta == 1) return -90f;  // EAST
+		if (meta == 2) return 0f;    // SOUTH
+		if (meta == 3) return 90f;   // WEST
 
-	private BoardColor getBoardColor(TileEntityChoppingBoard tileEntity) {
-		if (tileEntity.worldObj != null) {
-			Block<?> block = tileEntity.worldObj.getBlockType(tileEntity.tilePos);
-			int blockId = block == null ? 0 : block.id();
-			BoardColor color = BlocksList.getColorForBlock(blockId);
-			if (color != null) return color;
-		}
-		return tileEntity.getColor();
+		return 0f;
 	}
 
 	@Override
@@ -64,9 +60,9 @@ public class TileEntityRendererChoppingBoard extends TileEntityRenderer<TileEnti
 			return;
 		}
 
-		BoardColor color = getBoardColor(tileEntity);
-		int meta = tileEntity.getBlockMeta();
-		float rotation = getRotationFromMeta(meta);
+		int data = tileEntity.getBlockMeta();
+		int facingMeta = (data >> 4) & 3;
+		float rotation = getRotationFromMeta(facingMeta);
 
 		GLRenderer.pushFrame();
 
@@ -81,7 +77,7 @@ public class TileEntityRendererChoppingBoard extends TileEntityRenderer<TileEnti
 		GLRenderer.setBlendFunc(BlendFactor.SRC_ALPHA, BlendFactor.ONE_MINUS_SRC_ALPHA);
 		GLRenderer.setColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 
-		bindTexture(getTexture(color));
+		bindTexture(getTexture(tileEntity));
 		boardModel.render();
 
 

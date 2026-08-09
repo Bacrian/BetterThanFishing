@@ -21,19 +21,13 @@ public class FishingRodItem extends ItemFishingRod implements ICustomFishingRod 
 	@Nullable
 	@Override
 	public ItemStack onUse(@NotNull ItemStack selfStack, @NotNull World world, @NotNull Player player) {
-		System.out.println("bobber = " + player.bobberEntity);
 		if (player.bobberEntity != null) {
 			int damage = player.bobberEntity.yoink();
 			selfStack.damageItem(damage, player);
-			System.out.println("Recogiendo");
 		} else {
 			world.playSoundAtEntity(player, player, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 			if (!world.isClientSide) {
-				System.out.println("Antes");
 				world.entityJoinedWorld(new EntityBTFishingBobber(world, player));
-				System.out.println(EntityBTFishingBobber.class.getName());
-				System.out.println("Después");
-				System.out.println("Creando");
 			}
 		}
 

@@ -3,16 +3,16 @@ package imbacrian.btf.items;
 import imbacrian.btf.BetterThanFishing;
 import imbacrian.btf.blocks.BlocksList;
 import net.minecraft.core.enums.HumanArmorShape;
-import net.minecraft.core.item.Item;
-import net.minecraft.core.item.ItemArmor;
-import net.minecraft.core.item.ItemFood;
-import net.minecraft.core.item.ItemPlaceable;
+import net.minecraft.core.item.*;
 import net.minecraft.core.item.material.ToolMaterial;
-import net.minecraft.core.item.tool.ItemTool;
-import net.minecraft.core.item.tool.ItemToolSword;
+import net.minecraft.core.item.tool.*;
+import net.minecraft.core.util.helper.DyeColor;
 import turniplabs.halplibe.helper.ItemBuilder;
 import turniplabs.halplibe.helper.creativeInventory.CreativeInventoryCategory;
 import turniplabs.halplibe.helper.creativeInventory.CreativeInventoryPlacement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ItemsList {
 	public static int initialID = 29500;
@@ -20,26 +20,39 @@ public class ItemsList {
 	public static int newItemID(){
 		return initialID++;
 	}
+	// Fishing Rods
 	public static Item IRON_FISHING_ROD;
 	public static Item GOLD_FISHING_ROD;
 	public static Item DIAMOND_FISHING_ROD;
 	public static Item STEEL_FISHING_ROD;
-	public static Item INGOT_IRIDESCITE;
 	public static Item IRIDESCITE_FISHING_ROD;
+
+	// Iridescite Items
+	public static Item INGOT_IRIDESCITE;
 	public static Item IRIDESCITE_HELMET;
 	public static Item IRIDESCITE_CHESTPLATE;
 	public static Item IRIDESCITE_LEGGINGS;
 	public static Item IRIDESCITE_BOOTS;
 	public static Item IRIDESCENT_SCALE;
 	public static Item IRIDESCENT_CLUMP;
+	public static Item IRIDESCITE_SWORD;
+	public static Item IRIDESCITE_PICKAXE;
+	public static Item IRIDESCITE_AXE;
+	public static Item IRIDESCITE_HOE;
+	public static Item IRIDESCITE_SHOVEL;
+
+	// Other Items
 	public static Item BROKEN_CAN;
+	public static Item GOLD_BROKEN_CAN;
+	public static Item STEEL_BROKEN_CAN;
+
+	// Raw Fish
 	public static Item FOOD_ANCHOVY_RAW;
 	public static Item FOOD_GOLDEN_CARP_RAW;
 	public static Item FOOD_KNIFEFISH_RAW;
 	public static Item FOOD_SARDINE_RAW;
 	public static Item FOOD_SUNFISH_RAW;
 	public static Item FOOD_TUNA_RAW;
-	public static Item FOOD_ROCKFISH;
 	public static Item FOOD_CATFISH_RAW;
 	public static Item FOOD_BOOTFISH_RAW;
 	public static Item FOOD_RED_MULLET_RAW;
@@ -49,7 +62,41 @@ public class ItemsList {
 	public static Item FOOD_PERCH_RAW;
 	public static Item FOOD_TROUT_RAW;
 	public static Item FOOD_EEL_RAW;
+
+	// Fish but not food
 	public static Item GUNFISH;
+	public static Item FOOD_ROCKFISH;
+
+	// Cooked Fish
+	public static Item FOOD_ANCHOVY_COOKED;
+	public static Item FOOD_GOLDEN_CARP_COOKED;
+	public static Item FOOD_KNIFEFISH_COOKED;
+	public static Item FOOD_SARDINE_COOKED;
+	public static Item FOOD_SUNFISH_COOKED;
+	public static Item FOOD_TUNA_COOKED;
+	public static Item FOOD_CATFISH_COOKED;
+	public static Item FOOD_BOOTFISH_COOKED;
+	public static Item FOOD_RED_MULLET_COOKED;
+	public static Item FOOD_HERRING_COOKED;
+	public static Item FOOD_HALIBUT_COOKED;
+	public static Item FOOD_SEA_BASS_COOKED;
+	public static Item FOOD_PERCH_COOKED;
+	public static Item FOOD_TROUT_COOKED;
+	public static Item FOOD_EEL_COOKED;
+
+	// Other Food
+	public static Item SEA_ALGAE;
+	public static Item FOOD_SEA_ALGAE_DRY;
+	public static Item WHITE_ALGAE;
+	public static Item FOOD_WHITE_ALGAE_DRY;
+	public static Item RED_ALGAE;
+	public static Item FOOD_RED_ALGAE_DRY;
+	public static Item FOOD_CRAB;
+	public static Item FOOD_SHRIMP_RAW;
+	public static Item FOOD_SHRIMP_COOKED;
+	public static Item FOOD_CLAM;
+
+	// Fillet Knives
 	public static Item WOOD_FILLET_KNIFE;
 	public static Item STONE_FILLET_KNIFE;
 	public static Item IRON_FILLET_KNIFE;
@@ -60,25 +107,14 @@ public class ItemsList {
 	public static Item FOOD_FISH_FILLET_RAW;
 	public static Item FOOD_FISH_FILLET_COOKED;
 	public static Item FOOD_FISH_CHUNKS_RAW;
+	public static Item FOOD_FISH_CHUNKS_COOKED;
 	public static Item FOOD_EEL_FILLET_RAW;
-	// Chopping Boards
+	public static Item FOOD_EEL_FILLET_COOKED;
+
+	// Chopping Boards: una lisa (oak) + una pintada, el color vive en la
+	// metadata (0-15, DyeColor) en vez de un item ID separado por color.
 	public static Item ITEM_CHOPPING_BOARD;
-	public static Item ITEM_BLACK_CHOPPING_BOARD;
-	public static Item ITEM_BLUE_CHOPPING_BOARD;
-	public static Item ITEM_BROWN_CHOPPING_BOARD;
-	public static Item ITEM_CYAN_CHOPPING_BOARD;
-	public static Item ITEM_GRAY_CHOPPING_BOARD;
-	public static Item ITEM_GREEN_CHOPPING_BOARD;
-	public static Item ITEM_LIGHTBLUE_CHOPPING_BOARD;
-	public static Item ITEM_LIME_CHOPPING_BOARD;
-	public static Item ITEM_MAGENTA_CHOPPING_BOARD;
-	public static Item ITEM_ORANGE_CHOPPING_BOARD;
-	public static Item ITEM_PINK_CHOPPING_BOARD;
-	public static Item ITEM_PURPLE_CHOPPING_BOARD;
-	public static Item ITEM_RED_CHOPPING_BOARD;
-	public static Item ITEM_SILVER_CHOPPING_BOARD;
-	public static Item ITEM_WHITE_CHOPPING_BOARD;
-	public static Item ITEM_YELLOW_CHOPPING_BOARD;
+	public static Item ITEM_DYED_CHOPPING_BOARD;
 
 	private static boolean hasInit = false;
 	public static void Init(){
@@ -93,6 +129,7 @@ public class ItemsList {
 	}
 
 	public static void initItems(){
+		// Fishing Rods
 		IRON_FISHING_ROD = new ItemBuilder(MOD_ID)
 			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
 			.build(new FishingRodItem("tool.iron_fishing_rod",itemNSID("iron_fishing_rod"),newItemID(), ToolMaterial.iron));
@@ -108,6 +145,7 @@ public class ItemsList {
 		IRIDESCITE_FISHING_ROD = new ItemBuilder(MOD_ID)
 			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
 			.build(new FishingRodItem("tool.iridescite_fishing_rod",itemNSID("iridescite_fishing_rod"),newItemID(), ItemMaterials.iridesciteItem));
+		// Iridescite Items
 		IRIDESCITE_HELMET = new ItemBuilder(MOD_ID)
 			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.ARMOR))
 			.build(new ItemArmor("armor.helmet.iridescite",itemNSID("armor_helmet_iridescite"),newItemID(), ItemMaterials.IRIDESCITE, HumanArmorShape.HEAD));
@@ -129,9 +167,11 @@ public class ItemsList {
 		IRIDESCENT_CLUMP = new ItemBuilder(MOD_ID)
 			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.ORE_PRODUCTS))
 			.build(new Item("iridescent.clump",itemNSID("iridescent_clump"),newItemID()));
+		// Other Items
 		BROKEN_CAN = new ItemBuilder(MOD_ID)
 			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.DROPS))
 			.build(new Item("broken.can",itemNSID("broken_can"),newItemID()));
+		// Raw Fish
 		FOOD_ANCHOVY_RAW = new ItemBuilder(MOD_ID)
 			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
 			.build(new ItemFood(
@@ -293,6 +333,7 @@ public class ItemsList {
 				5,
 				false,
 				8));
+		// Fillet Knives
 		WOOD_FILLET_KNIFE = new ItemBuilder(MOD_ID)
 			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
 			.build(new ItemToolKnife("tool.knife_wood",itemNSID("knife_wood"),newItemID(), ToolMaterial.wood));
@@ -314,6 +355,7 @@ public class ItemsList {
 		IRIDESCITE_FILLET_KNIFE = new ItemBuilder(MOD_ID)
 			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
 			.build(new ItemToolKnife("tool.knife_iridescite",itemNSID("knife_iridescite"),newItemID(), ItemMaterials.iridesciteItem));
+		// Food Fillet
 		FOOD_FISH_FILLET_RAW = new ItemBuilder(MOD_ID)
 			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
 			.build(new ItemFood(
@@ -354,141 +396,305 @@ public class ItemsList {
 				5,
 				false,
 				16));
+		// Chopping Boards
 		ITEM_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
 			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
-				.build(new ItemPlaceable(
-					"item.chopping_board",
-					itemNSID("item_chopping_board"),
+			.build(new ItemPlaceable(
+				"chopping_board",
+				itemNSID("item_chopping_board"),
+				newItemID(),
+				BlocksList.CHOPPING_BOARD
+			));
+		ITEM_DYED_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(
+				new CreativeInventoryPlacement.Category(
+					CreativeInventoryCategory.MISC_TOOLS
+				)
+					.setCustomSupplier(() -> {
+						List<ItemStack> variants = new ArrayList<>();
+
+						for (DyeColor color : DyeColor.itemOrderedColors()) {
+							variants.add(
+								new ItemStack(
+									ITEM_DYED_CHOPPING_BOARD,
+									1,
+									color.itemMeta
+								)
+							);
+						}
+
+						return variants;
+					})
+			)
+			.build(
+				new ItemPlaceableDye(
+					"dyed_chopping_board",
+					itemNSID("item_dyed_chopping_board"),
 					newItemID(),
-					BlocksList.CHOPPING_BOARD
-				));
-		ITEM_BLACK_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
-			.build(new ItemPlaceable(
-				"item.black.chopping_board",
-				itemNSID("item_black_chopping_board"),
+					BlocksList.DYED_CHOPPING_BOARD
+				)
+			);
+		// Cooked Fish
+		FOOD_ANCHOVY_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.anchovy_cooked",
+				itemNSID("food_anchovy_cooked"),
 				newItemID(),
-				BlocksList.BLACK_CHOPPING_BOARD
-			));
-		ITEM_BLUE_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
-			.build(new ItemPlaceable(
-				"item.blue.chopping_board",
-				itemNSID("item_blue_chopping_board"),
+				5,
+				5,
+				false,
+				8));
+		FOOD_GOLDEN_CARP_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.golden_carp_cooked",
+				itemNSID("food_golden_carp_cooked"),
 				newItemID(),
-				BlocksList.BLUE_CHOPPING_BOARD
-			));
-		ITEM_BROWN_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
-			.build(new ItemPlaceable(
-				"item.brown.chopping_board",
-				itemNSID("item_brown_chopping_board"),
+				5,
+				5,
+				false,
+				8));
+		FOOD_KNIFEFISH_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.knifefish_cooked",
+				itemNSID("food_knifefish_cooked"),
 				newItemID(),
-				BlocksList.BROWN_CHOPPING_BOARD
-			));
-		ITEM_CYAN_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
-			.build(new ItemPlaceable(
-				"item.cyan.chopping_board",
-				itemNSID("item_cyan_chopping_board"),
+				5,
+				5,
+				false,
+				8));
+		FOOD_SARDINE_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.sardine_cooked",
+				itemNSID("food_sardine_cooked"),
 				newItemID(),
-				BlocksList.CYAN_CHOPPING_BOARD
-			));
-		ITEM_GRAY_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
-			.build(new ItemPlaceable(
-				"item.gray.chopping_board",
-				itemNSID("item_gray_chopping_board"),
+				5,
+				5,
+				false,
+				8));
+		FOOD_SUNFISH_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.sunfish_cooked",
+				itemNSID("food_sunfish_cooked"),
 				newItemID(),
-				BlocksList.GRAY_CHOPPING_BOARD
-			));
-		ITEM_GREEN_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
-			.build(new ItemPlaceable(
-				"item.green.chopping_board",
-				itemNSID("item_green_chopping_board"),
+				5,
+				5,
+				false,
+				8));
+		FOOD_TUNA_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.tuna_cooked",
+				itemNSID("food_tuna_cooked"),
 				newItemID(),
-				BlocksList.GREEN_CHOPPING_BOARD
-			));
-		ITEM_LIGHTBLUE_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
-			.build(new ItemPlaceable(
-				"item.lightblue.chopping_board",
-				itemNSID("item_lightblue_chopping_board"),
+				5,
+				5,
+				false,
+				8));
+		FOOD_CATFISH_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.catfish_cooked",
+				itemNSID("food_catfish_cooked"),
 				newItemID(),
-				BlocksList.LIGHTBLUE_CHOPPING_BOARD
-			));
-		ITEM_LIME_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
-			.build(new ItemPlaceable(
-				"item.lime.chopping_board",
-				itemNSID("item_lime_chopping_board"),
+				5,
+				5,
+				false,
+				8));
+		FOOD_BOOTFISH_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.bootfish_cooked",
+				itemNSID("food_bootfish_cooked"),
 				newItemID(),
-				BlocksList.LIME_CHOPPING_BOARD
-			));
-		ITEM_MAGENTA_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
-			.build(new ItemPlaceable(
-				"item.magenta.chopping_board",
-				itemNSID("item_magenta_chopping_board"),
+				5,
+				5,
+				false,
+				8));
+		FOOD_RED_MULLET_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.red_mullet_cooked",
+				itemNSID("food_red_mullet_cooked"),
 				newItemID(),
-				BlocksList.MAGENTA_CHOPPING_BOARD
-			));
-		ITEM_ORANGE_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
-			.build(new ItemPlaceable(
-				"item.orange.chopping_board",
-				itemNSID("item_orange_chopping_board"),
+				5,
+				5,
+				false,
+				8));
+		FOOD_HERRING_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.herring_cooked",
+				itemNSID("food_herring_cooked"),
 				newItemID(),
-				BlocksList.ORANGE_CHOPPING_BOARD
-			));
-		ITEM_PINK_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
-			.build(new ItemPlaceable(
-				"item.pink.chopping_board",
-				itemNSID("item_pink_chopping_board"),
+				5,
+				5,
+				false,
+				8));
+		FOOD_HALIBUT_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.halibut_cooked",
+				itemNSID("food_halibut_cooked"),
 				newItemID(),
-				BlocksList.PINK_CHOPPING_BOARD
-			));
-		ITEM_PURPLE_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
-			.build(new ItemPlaceable(
-				"item.purple.chopping_board",
-				itemNSID("item_purple_chopping_board"),
+				5,
+				5,
+				false,
+				8));
+		FOOD_SEA_BASS_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.sea_bass_cooked",
+				itemNSID("food_sea_bass_cooked"),
 				newItemID(),
-				BlocksList.PURPLE_CHOPPING_BOARD
-			));
-		ITEM_RED_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
-			.build(new ItemPlaceable(
-				"item.red.chopping_board",
-				itemNSID("item_red_chopping_board"),
+				5,
+				5,
+				false,
+				8));
+		FOOD_PERCH_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.perch_cooked",
+				itemNSID("food_perch_cooked"),
 				newItemID(),
-				BlocksList.RED_CHOPPING_BOARD
-			));
-		ITEM_SILVER_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
-			.build(new ItemPlaceable(
-				"item.silver.chopping_board",
-				itemNSID("item_silver_chopping_board"),
+				5,
+				5,
+				false,
+				8));
+		FOOD_TROUT_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.trout_cooked",
+				itemNSID("food_trout_cooked"),
 				newItemID(),
-				BlocksList.SILVER_CHOPPING_BOARD
-			));
-		ITEM_WHITE_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
-			.build(new ItemPlaceable(
-				"item.white.chopping_board",
-				itemNSID("item_white_chopping_board"),
+				5,
+				5,
+				false,
+				8));
+		FOOD_EEL_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.eel_cooked",
+				itemNSID("food_eel_cooked"),
 				newItemID(),
-				BlocksList.WHITE_CHOPPING_BOARD
-			));
-		ITEM_YELLOW_CHOPPING_BOARD = new ItemBuilder(MOD_ID)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISC_TOOLS))
-			.build(new ItemPlaceable(
-				"item.yellow.chopping_board",
-				itemNSID("item_yellow_chopping_board"),
+				5,
+				5,
+				false,
+				8));
+		FOOD_EEL_FILLET_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.eel_fillet_cooked",
+				itemNSID("food_eel_fillet_cooked"),
 				newItemID(),
-				BlocksList.YELLOW_CHOPPING_BOARD
-			));
+				5,
+				5,
+				false,
+				16));
+		FOOD_FISH_CHUNKS_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.fish_chunks_cooked",
+				itemNSID("food_fish_chunks_cooked"),
+				newItemID(),
+				3,
+				5,
+				false,
+				16));
+		IRIDESCITE_SWORD = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.TOOLS))
+			.build(new ItemToolSword("tool.sword_iridescite",itemNSID("sword_iridescite"),newItemID(), ItemMaterials.iridesciteItem));
+		IRIDESCITE_PICKAXE = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.TOOLS))
+			.build(new ItemToolPickaxe("tool.pickaxe_iridescite",itemNSID("pickaxe_iridescite"),newItemID(), ItemMaterials.iridesciteItem));
+		IRIDESCITE_AXE = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.TOOLS))
+			.build(new ItemToolAxe("tool.axe_iridescite",itemNSID("axe_iridescite"),newItemID(), ItemMaterials.iridesciteItem));
+		IRIDESCITE_SHOVEL = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.TOOLS))
+			.build(new ItemToolShovel("tool.shovel_iridescite",itemNSID("shovel_iridescite"),newItemID(), ItemMaterials.iridesciteItem));
+		IRIDESCITE_HOE = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.TOOLS))
+			.build(new ItemToolHoe("tool.hoe_iridescite",itemNSID("hoe_iridescite"),newItemID(), ItemMaterials.iridesciteItem));
+		GOLD_BROKEN_CAN = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.DROPS))
+			.build(new Item("gold.broken.can",itemNSID("gold_broken_can"),newItemID()));
+		STEEL_BROKEN_CAN = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.DROPS))
+			.build(new Item("steel.broken.can",itemNSID("steel_broken_can"),newItemID()));
+		FOOD_CLAM = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.clam",
+				itemNSID("food_clam"),
+				newItemID(),
+				2,
+				5,
+				false,
+				4));
+		FOOD_CRAB = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.crab",
+				itemNSID("food_crab"),
+				newItemID(),
+				2,
+				5,
+				false,
+				4));
+		FOOD_SHRIMP_RAW = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.shrimp.raw",
+				itemNSID("food_shrimp_raw"),
+				newItemID(),
+				2,
+				5,
+				false,
+				8));
+		FOOD_SHRIMP_COOKED = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.shrimp.cooked",
+				itemNSID("food_shrimp_cooked"),
+				newItemID(),
+				5,
+				5,
+				false,
+				8));
+		SEA_ALGAE = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.sea.algae",
+				itemNSID("food_sea_algae"),
+				newItemID(),
+				1,
+				5,
+				false,
+				8));
+		RED_ALGAE = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.red.algae",
+				itemNSID("food_red_algae"),
+				newItemID(),
+				1,
+				5,
+				false,
+				8));
+		WHITE_ALGAE = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.white.algae",
+				itemNSID("food_white_algae"),
+				newItemID(),
+				1,
+				5,
+				false,
+				8));
 	}
 }

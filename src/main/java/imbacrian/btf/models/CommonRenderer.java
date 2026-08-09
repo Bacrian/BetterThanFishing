@@ -224,38 +224,74 @@ public class CommonRenderer implements ModelEntrypoint {
 			.setIcon("btf:item/food_eel_fillet_raw"));
 		dispatcher.addDispatch(new ItemModelStandard(ItemsList.ITEM_CHOPPING_BOARD,false)
 			.setIcon("btf:item/chopping_board/chopping_board"));
-		dispatcher.addDispatch(new ItemModelStandard(ItemsList.ITEM_BLACK_CHOPPING_BOARD,false)
-			.setIcon("btf:item/chopping_board/chopping_board_black"));
-		dispatcher.addDispatch(new ItemModelStandard(ItemsList.ITEM_BLUE_CHOPPING_BOARD,false)
-			.setIcon("btf:item/chopping_board/chopping_board_blue"));
-		dispatcher.addDispatch(new ItemModelStandard(ItemsList.ITEM_BROWN_CHOPPING_BOARD,false)
-			.setIcon("btf:item/chopping_board/chopping_board_brown"));
-		dispatcher.addDispatch(new ItemModelStandard(ItemsList.ITEM_CYAN_CHOPPING_BOARD,false)
-			.setIcon("btf:item/chopping_board/chopping_board_cyan"));
-		dispatcher.addDispatch(new ItemModelStandard(ItemsList.ITEM_GRAY_CHOPPING_BOARD,false)
-			.setIcon("btf:item/chopping_board/chopping_board_gray"));
-		dispatcher.addDispatch(new ItemModelStandard(ItemsList.ITEM_GREEN_CHOPPING_BOARD,false)
-			.setIcon("btf:item/chopping_board/chopping_board_green"));
-		dispatcher.addDispatch(new ItemModelStandard(ItemsList.ITEM_LIGHTBLUE_CHOPPING_BOARD,false)
-			.setIcon("btf:item/chopping_board/chopping_board_lightblue"));
-		dispatcher.addDispatch(new ItemModelStandard(ItemsList.ITEM_LIME_CHOPPING_BOARD,false)
-			.setIcon("btf:item/chopping_board/chopping_board_lime"));
-		dispatcher.addDispatch(new ItemModelStandard(ItemsList.ITEM_MAGENTA_CHOPPING_BOARD,false)
-			.setIcon("btf:item/chopping_board/chopping_board_magenta"));
-		dispatcher.addDispatch(new ItemModelStandard(ItemsList.ITEM_ORANGE_CHOPPING_BOARD,false)
-			.setIcon("btf:item/chopping_board/chopping_board_orange"));
-		dispatcher.addDispatch(new ItemModelStandard(ItemsList.ITEM_PINK_CHOPPING_BOARD,false)
-			.setIcon("btf:item/chopping_board/chopping_board_pink"));
-		dispatcher.addDispatch(new ItemModelStandard(ItemsList.ITEM_PURPLE_CHOPPING_BOARD,false)
-			.setIcon("btf:item/chopping_board/chopping_board_purple"));
-		dispatcher.addDispatch(new ItemModelStandard(ItemsList.ITEM_RED_CHOPPING_BOARD,false)
-			.setIcon("btf:item/chopping_board/chopping_board_red"));
-		dispatcher.addDispatch(new ItemModelStandard(ItemsList.ITEM_SILVER_CHOPPING_BOARD,false)
-			.setIcon("btf:item/chopping_board/chopping_board_silver"));
-		dispatcher.addDispatch(new ItemModelStandard(ItemsList.ITEM_WHITE_CHOPPING_BOARD,false)
-			.setIcon("btf:item/chopping_board/chopping_board_white"));
-		dispatcher.addDispatch(new ItemModelStandard(ItemsList.ITEM_YELLOW_CHOPPING_BOARD,false)
-			.setIcon("btf:item/chopping_board/chopping_board_yellow"));
+		dispatcher.addDispatch(
+			new ItemModelDye(
+				ItemsList.ITEM_DYED_CHOPPING_BOARD,
+				"btf:item/chopping_board/chopping_board_"
+			)
+		);
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_ANCHOVY_COOKED,false)
+			.setIcon("btf:item/food_anchovy_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_GOLDEN_CARP_COOKED,false)
+			.setIcon("btf:item/food_golden_carp_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_KNIFEFISH_COOKED,false)
+			.setIcon("btf:item/food_knifefish_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_SARDINE_COOKED,false)
+			.setIcon("btf:item/food_sardine_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_SUNFISH_COOKED,false)
+			.setIcon("btf:item/food_sunfish_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_TUNA_COOKED,false)
+			.setIcon("btf:item/food_tuna_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_CATFISH_COOKED,false)
+			.setIcon("btf:item/food_catfish_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_BOOTFISH_COOKED,false)
+			.setIcon("btf:item/food_bootfish_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_RED_MULLET_COOKED,false)
+			.setIcon("btf:item/food_red_mullet_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_HERRING_COOKED,false)
+			.setIcon("btf:item/food_herring_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_HALIBUT_COOKED,false)
+			.setIcon("btf:item/food_halibut_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_SEA_BASS_COOKED,false)
+			.setIcon("btf:item/food_sea_bass_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_PERCH_COOKED,false)
+			.setIcon("btf:item/food_perch_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_TROUT_COOKED,false)
+			.setIcon("btf:item/food_trout_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_EEL_COOKED,false)
+			.setIcon("btf:item/food_eel_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_EEL_FILLET_COOKED,false)
+			.setIcon("btf:item/food_eel_fillet_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_FISH_CHUNKS_COOKED,false)
+			.setIcon("btf:item/food_fish_chunks_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.IRIDESCITE_SWORD, false)
+			.setIcon("btf:item/tool_sword_iridescite"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.IRIDESCITE_PICKAXE, false)
+			.setIcon("btf:item/tool_pickaxe_iridescite"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.IRIDESCITE_AXE, false)
+			.setIcon("btf:item/tool_axe_iridescite"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.IRIDESCITE_SHOVEL, false)
+			.setIcon("btf:item/tool_shovel_iridescite"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.IRIDESCITE_HOE, false)
+			.setIcon("btf:item/tool_hoe_iridescite"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.GOLD_BROKEN_CAN, false)
+			.setIcon("btf:item/gold_broken_can"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.STEEL_BROKEN_CAN, false)
+			.setIcon("btf:item/steel_broken_can"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_CLAM, false)
+			.setIcon("btf:item/food_clam"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_CRAB, false)
+			.setIcon("btf:item/food_crab"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_SHRIMP_RAW, false)
+			.setIcon("btf:item/food_shrimp_raw"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_SHRIMP_COOKED, false)
+			.setIcon("btf:item/food_shrimp_cooked"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.SEA_ALGAE, false)
+			.setIcon("btf:item/sea_algae"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.RED_ALGAE, false)
+			.setIcon("btf:item/red_algae"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.WHITE_ALGAE, false)
+			.setIcon("btf:item/white_algae"));
 	}
 
 	@Override

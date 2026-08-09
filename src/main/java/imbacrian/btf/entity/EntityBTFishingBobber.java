@@ -14,9 +14,6 @@ public class EntityBTFishingBobber extends EntityFishingBobber {
 
 	@Override
 	public void tick() {
-		System.out.println("owner = " + owner);
-		System.out.println("player.bobber = " + owner.bobberEntity);
-		System.out.println("held = " + owner.getCurrentEquippedItem());
 		super.tick();
 
 		if (!this.world.isClientSide) {
