@@ -6,4 +6,5 @@ Made for Better Than Adventure (BTA) 8.0.1
 # 
 
 **Better Than Fishing** 
+
 This mod aims to expand the fishing system of BTA by adding new items, blocks, and recipes. And is it really better than fishing...? I don't know.
