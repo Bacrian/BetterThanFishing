@@ -151,6 +151,15 @@ public class BetterThanFishing implements ModInitializer {
 		new RecipeBuilderFurnace(MOD_ID)
 			.setInput(ItemsList.FOOD_TUNA_RAW)
 			.create("cooked_herring", ItemsList.FOOD_TUNA_COOKED.getDefaultStack());
+		new RecipeBuilderFurnace(MOD_ID)
+			.setInput(ItemsList.SEA_ALGAE)
+			.create("drying_sea_algae", ItemsList.FOOD_SEA_ALGAE_DRY.getDefaultStack());
+		new RecipeBuilderFurnace(MOD_ID)
+			.setInput(ItemsList.RED_ALGAE)
+			.create("drying_red_algae", ItemsList.FOOD_RED_ALGAE_DRY.getDefaultStack());
+		new RecipeBuilderFurnace(MOD_ID)
+			.setInput(ItemsList.WHITE_ALGAE)
+			.create("drying_white_algae", ItemsList.FOOD_WHITE_ALGAE_DRY.getDefaultStack());
 	}
 
 

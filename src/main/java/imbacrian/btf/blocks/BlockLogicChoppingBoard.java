@@ -56,13 +56,11 @@ public class BlockLogicChoppingBoard extends BlockLogic {
 
 	@Override
 	public @NotNull ItemStack @Nullable [] getBreakResult(@NotNull World world, @NotNull EnumDropCause dropCause, int data, @Nullable TileEntity tileEntity) {
-		DyeColor color = DyeColor.colorFromBlockMeta(data & 15);
 
 		return new ItemStack[]{
 			new ItemStack(
-				ItemsList.ITEM_DYED_CHOPPING_BOARD,
-				1,
-				color.itemMeta
+				ItemsList.ITEM_CHOPPING_BOARD,
+				1
 			)
 		};
 	}

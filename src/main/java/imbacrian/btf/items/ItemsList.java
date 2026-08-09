@@ -111,8 +111,14 @@ public class ItemsList {
 	public static Item FOOD_EEL_FILLET_RAW;
 	public static Item FOOD_EEL_FILLET_COOKED;
 
-	// Chopping Boards: una lisa (oak) + una pintada, el color vive en la
-	// metadata (0-15, DyeColor) en vez de un item ID separado por color.
+	// Craftable Food
+	public static Item FOOD_CRAB_STEW;
+	public static Item FOOD_SEAFOOD_SALAD;
+	public static Item FOOD_SEAFOOD_SKEWER;
+	public static Item FOOD_CRAB_PIE;
+	public static Item FOOD_BREAD_SEAROLL;
+
+	// Chopping Boards
 	public static Item ITEM_CHOPPING_BOARD;
 	public static Item ITEM_DYED_CHOPPING_BOARD;
 
@@ -696,5 +702,86 @@ public class ItemsList {
 				5,
 				false,
 				8));
+		FOOD_SEA_ALGAE_DRY = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.sea.algae.dry",
+				itemNSID("food_sea_algae_dry"),
+				newItemID(),
+				3,
+				5,
+				false,
+				8));
+		FOOD_RED_ALGAE_DRY = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.red.algae.dry",
+				itemNSID("food_red_algae_dry"),
+				newItemID(),
+				3,
+				5,
+				false,
+				8));
+		FOOD_WHITE_ALGAE_DRY = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemFood(
+				"food.white.algae.dry",
+				itemNSID("food_white_algae_dry"),
+				newItemID(),
+				3,
+				5,
+				false,
+				8));
+		FOOD_CRAB_STEW = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemSoup(
+				"food.crab.stew",
+				itemNSID("food_crab_stew"),
+				newItemID(),
+				8,
+				5
+			));
+		FOOD_SEAFOOD_SALAD = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemSoup(
+				"food.seafood.salad",
+				itemNSID("food_seafood_salad"),
+				newItemID(),
+				10,
+				5
+			));
+		FOOD_SEAFOOD_SKEWER = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemSkewer(
+				"food.seafood.skewer",
+				itemNSID("food_seafood_skewer"),
+				newItemID(),
+				6,
+				5,
+				false,
+				4
+			));
+		FOOD_CRAB_PIE = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemSkewer(
+				"food.crab.pie",
+				itemNSID("food_crab_pie"),
+				newItemID(),
+				8,
+				5,
+				false,
+				8
+			));
+		FOOD_BREAD_SEAROLL = new ItemBuilder(MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.FOOD))
+			.build(new ItemSkewer(
+				"food.bread.searoll",
+				itemNSID("food_bread_searoll"),
+				newItemID(),
+				8,
+				5,
+				false,
+				4
+			));
 	}
 }

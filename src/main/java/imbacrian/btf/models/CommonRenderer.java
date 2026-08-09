@@ -292,6 +292,22 @@ public class CommonRenderer implements ModelEntrypoint {
 			.setIcon("btf:item/red_algae"));
 		dispatcher.addDispatch(new ItemModelStandard(ItemsList.WHITE_ALGAE, false)
 			.setIcon("btf:item/white_algae"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_SEA_ALGAE_DRY, false)
+			.setIcon("btf:item/food_sea_algae_dry"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_RED_ALGAE_DRY, false)
+			.setIcon("btf:item/food_red_algae_dry"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_WHITE_ALGAE_DRY, false)
+			.setIcon("btf:item/food_white_algae_dry"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_CRAB_STEW, false)
+			.setIcon("btf:item/food_stew_crab"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_SEAFOOD_SALAD, false)
+			.setIcon("btf:item/food_seafood_salad"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_SEAFOOD_SKEWER, false)
+			.setIcon("btf:item/food_seafood_skewer"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_CRAB_PIE, false)
+			.setIcon("btf:item/food_crab_pie"));
+		dispatcher.addDispatch(new ItemModelStandard(ItemsList.FOOD_BREAD_SEAROLL, false)
+			.setIcon("btf:item/food_bread_searoll"));
 	}
 
 	@Override

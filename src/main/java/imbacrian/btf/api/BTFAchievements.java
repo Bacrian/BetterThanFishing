@@ -48,7 +48,7 @@ public class BTFAchievements {
 	public static Achievement MASTER_BAITER = new Achievement(
 		NamespaceID.fromPool(BetterThanFishing.MOD_ID, "master_baiter"),
 		"master_baiter",
-		ItemsList.DIAMOND_FISHING_ROD,
+		ItemsList.IRIDESCITE_FISHING_ROD,
 		FISHING_TIME
 	)
 		.setType(Achievement.TYPE_SECRET)

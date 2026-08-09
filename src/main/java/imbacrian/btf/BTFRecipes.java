@@ -146,6 +146,53 @@ public class BTFRecipes implements RecipeEntrypoint {
 			.addInput('R', Items.STICK)
 			.addInput('I', ItemsList.INGOT_IRIDESCITE)
 			.create("iridescite_knife", new ItemStack(ItemsList.IRIDESCITE_FILLET_KNIFE,1));
+		RecipeBuilder.Shapeless(modId)
+			.addInput(ItemsList.FOOD_FISH_CHUNKS_COOKED)
+			.addInput(ItemsList.FOOD_SHRIMP_COOKED)
+			.addInput(Items.STICK)
+			.create("seafood_skewer", ItemsList.FOOD_SEAFOOD_SKEWER.getDefaultStack());
+		RecipeBuilder.Shapeless(modId)
+			.addInput(ItemsList.FOOD_FISH_FILLET_RAW)
+			.addInput(ItemsList.FOOD_SHRIMP_COOKED)
+			.addInput(ItemsList.SEA_ALGAE)
+			.addInput(Items.BOWL)
+			.create("seafood_salad", ItemsList.FOOD_SEAFOOD_SALAD.getDefaultStack());
+		RecipeBuilder.Shapeless(modId)
+			.addInput(ItemsList.FOOD_FISH_FILLET_RAW)
+			.addInput(ItemsList.FOOD_SHRIMP_COOKED)
+			.addInput(ItemsList.RED_ALGAE)
+			.addInput(Items.BOWL)
+			.create("seafood_salad_red", ItemsList.FOOD_SEAFOOD_SALAD.getDefaultStack());
+		RecipeBuilder.Shapeless(modId)
+			.addInput(ItemsList.FOOD_FISH_FILLET_RAW)
+			.addInput(ItemsList.FOOD_SHRIMP_COOKED)
+			.addInput(ItemsList.WHITE_ALGAE)
+			.addInput(Items.BOWL)
+			.create("seafood_salad_white", ItemsList.FOOD_SEAFOOD_SALAD.getDefaultStack());
+		RecipeBuilder.Shapeless(modId)
+			.addInput(ItemsList.FOOD_CRAB)
+			.addInput(ItemsList.WHITE_ALGAE)
+			.addInput(Items.BOWL)
+			.create("crab_stew", ItemsList.FOOD_CRAB_STEW.getDefaultStack());
+		RecipeBuilder.Shaped(modId, " D ","DCD"," D ")
+			.addInput('C',ItemsList.FOOD_CRAB)
+			.addInput('D',Items.DOUGH)
+			.create("crab_pie", new ItemStack(ItemsList.FOOD_CRAB_PIE,4));
+		RecipeBuilder.Shapeless(modId)
+			.addInput(Items.FOOD_BREAD)
+			.addInput(ItemsList.FOOD_FISH_FILLET_RAW)
+			.addInput(ItemsList.SEA_ALGAE)
+			.create("bread_searoll", ItemsList.FOOD_BREAD_SEAROLL.getDefaultStack());
+		RecipeBuilder.Shapeless(modId)
+			.addInput(Items.FOOD_BREAD)
+			.addInput(ItemsList.FOOD_FISH_FILLET_RAW)
+			.addInput(ItemsList.RED_ALGAE)
+			.create("bread_searoll_red", ItemsList.FOOD_BREAD_SEAROLL.getDefaultStack());
+		RecipeBuilder.Shapeless(modId)
+			.addInput(Items.FOOD_BREAD)
+			.addInput(ItemsList.FOOD_FISH_FILLET_RAW)
+			.addInput(ItemsList.WHITE_ALGAE)
+			.create("bread_searoll_white", ItemsList.FOOD_BREAD_SEAROLL.getDefaultStack());
 	}
 
 	@Override

@@ -9,11 +9,11 @@ public class ItemMaterials {
 	public static final ArmorMaterial IRIDESCITE = ArmorHelper.createArmorMaterial(
 		BetterThanFishing.MOD_ID,
 		"iridescite",
-		850,
-		1.0f,
-		1.0f,
-		1.0f,
-		1.0f
+		540,
+		50.0f,
+		50.0f,
+		75.0f,
+		70.0f
 	);
 	public static final ToolMaterial iridesciteItem = new ToolMaterial()
 		.setDurability(850)

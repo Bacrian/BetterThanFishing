@@ -8,6 +8,7 @@
   "mixins": [
     "accessor.SlotResultAccessor",
     "mixin.EntityFishingBobberMixin",
+    "mixin.EntityItemMixin",
     "mixin.SlotResultMixin"
   ],
   "client": []

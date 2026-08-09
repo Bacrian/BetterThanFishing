@@ -3,7 +3,7 @@
 	"id": "btf",
 	"version": "${version}",
 	"name": "Better Than Fishing",
-	"description": "This mod aims to help new BTA modders.",
+	"description": "This mod aims to expand the fishing system of BTA by adding new items, blocks, and recipes. And is it really better than fishing...? I don't know-",
 	"authors": [
 		"Bacrian / @imbacrian"
 	],
