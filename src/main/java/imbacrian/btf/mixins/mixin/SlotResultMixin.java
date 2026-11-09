@@ -6,6 +6,7 @@ import imbacrian.btf.items.FishingRodItem;
 import imbacrian.btf.items.ItemsList;
 import imbacrian.btf.mixins.accessor.SlotResultAccessor;
 import net.minecraft.core.item.Item;
+import net.minecraft.core.item.ItemFishingRod;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.Items;
 import net.minecraft.core.player.inventory.slot.SlotResult;
@@ -19,7 +20,7 @@ public class SlotResultMixin {
 	@Inject(method = "onTake", at = @At("TAIL"))
 	private void BTFAchievementInject(ItemStack itemStack, CallbackInfo ci){
 		Item item = itemStack.getItem();
-		if (item instanceof ICustomFishingRod || item == Items.TOOL_FISHINGROD) {
+		if (item instanceof ICustomFishingRod || item instanceof ItemFishingRod) {
 			((SlotResultAccessor) this).getThePlayer().addStat(BTFAchievements.FISHING_TIME, 1);
 		}
 		if (item == ItemsList.DIAMOND_FISHING_ROD) {

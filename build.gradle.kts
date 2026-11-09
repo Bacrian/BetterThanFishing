@@ -1,6 +1,6 @@
 plugins {
 	alias(libs.plugins.loom)
-	java
+    java
 }
 
 val lwjglNatives = resolveLwjglNatives()
@@ -17,27 +17,25 @@ version = modVersion
 loom {
 	val btaChannel = libs.versions.btaChannel.get()
 	val btaVersion = (if (btaChannel == "nightly") "" else "v") + libs.versions.bta.get()
-	customMinecraftMetadata.set("https://downloads.betterthanadventure.net/bta-client/${btaChannel}/$btaVersion/manifest.json")
+    customMinecraftMetadata.set("https://downloads.betterthanadventure.net/bta-client/${btaChannel}/$btaVersion/manifest.json")
 }
 repositories {
-	mavenCentral()
-	maven("https://maven.fabricmc.net/") { name = "Fabric" }
-	maven("https://maven.thesignalumproject.net/infrastructure") { name = "SignalumMavenInfrastructure" }
-	maven("https://maven.thesignalumproject.net/releases") { name = "SignalumMavenReleases" }
-	maven("https://maven.thesignalumproject.net/nightly") { name = "SignalumMavenNightly" }
-	ivy("https://piston-data.mojang.com") {
-		patternLayout { artifact("v1/[organisation]/[revision]/[module].jar") }
-		metadataSources { artifact() }
-	}
+    mavenCentral()
+    maven("https://maven.fabricmc.net/") { name = "Fabric" }
+	maven("https://maven.danygames2014.net/signalum") { name = "SignalumMavenMirror1" }
+
+    ivy("https://piston-data.mojang.com") {
+        patternLayout { artifact("v1/[organisation]/[revision]/[module].jar") }
+        metadataSources { artifact() }
+    }
 }
 dependencies {
-	minecraft("::${libs.versions.bta.get()}")
+    minecraft("::${libs.versions.bta.get()}")
 
 	// Required at compilation & runtime
 	// included in builds as a runtime dependency
 	implementation(libs.loader)
 	implementation(libs.halplibe) // If you do not need halplibe you can delete this line
-
 
 	// Only required at compilation
 	// provides documentation, can be removed if that isn't needed
@@ -91,7 +89,7 @@ tasks {
 		targetCompatibility = javaVersion.get().toString()
 		if (javaVersion.get() > 8) options.release = javaVersion
 	}
-	withType<UpdateDaemonJvm>().configureEach {
+	named<UpdateDaemonJvm>("updateDaemonJvm") {
 		languageVersion = libs.versions.gradleJava.map { JavaLanguageVersion.of(it.toInt()) }
 		vendor = JvmVendorSpec.ADOPTIUM
 	}

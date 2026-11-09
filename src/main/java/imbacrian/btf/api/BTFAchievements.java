@@ -64,6 +64,14 @@ public class BTFAchievements {
 		.setType(Achievement.TYPE_SPECIAL)
 		.setClientsideAchievement()
 		.registerAchievement();
+	public static Achievement RICE_BALL = new Achievement(
+		NamespaceID.fromPool(BetterThanFishing.MOD_ID, "rice_ball"),
+		"rice_ball",
+		ItemsList.RICE_BALL,
+		FISHING_TIME
+	)
+		.setClientsideAchievement()
+		.registerAchievement();
 
 	public static void init(){
 	}

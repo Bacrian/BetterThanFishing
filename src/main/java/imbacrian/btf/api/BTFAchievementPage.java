@@ -20,7 +20,7 @@ public class BTFAchievementPage {
 		OVERWORLD_PAGE.addAchievement(BTFAchievements.MASTER_BAITER, itemX + 3, itemY);
 		OVERWORLD_PAGE.addAchievement(BTFAchievements.IRIDESCITE_ITEM, itemX + 2, itemY - 1);
 		OVERWORLD_PAGE.addAchievement(BTFAchievements.IRIDESCITE_ARMOR, itemX + 2, itemY - 3);
-
+		OVERWORLD_PAGE.addAchievement(BTFAchievements.RICE_BALL, itemX-1, itemY-2);
 
 	}
 }

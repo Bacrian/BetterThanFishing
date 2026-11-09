@@ -7,9 +7,20 @@
   },
   "mixins": [
     "accessor.SlotResultAccessor",
+    "mixin.BlockLogicMudMixin",
     "mixin.EntityFishingBobberMixin",
     "mixin.EntityItemMixin",
+    "mixin.MobMixin",
+    "mixin.PlayerMixin",
     "mixin.SlotResultMixin"
   ],
-  "client": []
+  "client": [
+    "mixin.PacketHandlerClientMixin",
+    "mixin.PlayerLocalMixin",
+    "mixin.ScreenGuidebookMixin",
+    "mixin.TooltipElementMixin"
+  ],
+  "server": [
+    "mixin.PlayerServerMixin"
+  ]
 }

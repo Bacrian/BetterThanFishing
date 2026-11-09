@@ -95,6 +95,10 @@ public class TileEntityRendererChoppingBoard extends TileEntityRenderer<TileEnti
 			return;
 		}
 
+		int data = tileEntity.getBlockMeta();
+		int facingMeta = (data >> 4) & 3;
+		float rotation = getRotationFromMeta(facingMeta);
+
 		ItemStack displayStack = new ItemStack(heldItem, 1, 0);
 		byte light = tileEntity.worldObj.getLightIndex(tileEntity.tilePos, 0);
 
@@ -108,13 +112,10 @@ public class TileEntityRendererChoppingBoard extends TileEntityRenderer<TileEnti
 				tessellator,
 				displayStack,
 				GameSettings.ITEMS_3D.value,
-				1,
-				0,
-				0f,
+				1, 0,
+				rotation,   // <- antes era 0f
 				light,
-				partialTick
-
-			);
+				partialTick);
 		GLRenderer.disableState(State.BLEND);
 		GLRenderer.popFrame();
 	}

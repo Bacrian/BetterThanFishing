@@ -14,8 +14,9 @@ public class ItemSkewer extends ItemFood {
 	}
 
 	public @Nullable ItemStack onUse(@NotNull ItemStack selfStack, @NotNull World world, @NotNull Player player) {
+		int prevStackSize = selfStack.stackSize;
 		ItemStack stack = super.onUse(selfStack, world, player);
-		if (selfStack.stackSize >= 0) {
+		if (selfStack.stackSize < prevStackSize) {
 			player.inventory.insertItem(Items.STICK.getDefaultStack(), false);
 		}
 		return stack;

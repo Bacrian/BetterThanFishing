@@ -1,21 +1,30 @@
 package imbacrian.btf;
 
-import imbacrian.btf.api.BTFAchievementPage;
-import imbacrian.btf.api.ChoppingRegistry;
+import imbacrian.btf.api.*;
 import imbacrian.btf.blocks.BlocksList;
 import imbacrian.btf.blocks.entity.TileEntityChoppingBoard;
+import imbacrian.btf.blocks.entity.TileEntityTackleBox;
+import imbacrian.btf.compat.stardew.StardewCompat;
+import imbacrian.btf.items.FishCategory;
 import imbacrian.btf.items.ItemsList;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.client.render.texture.stitcher.TextureRegistry;
 import net.minecraft.core.block.entity.TileEntityDispatcher;
+import net.minecraft.core.item.Item;
+import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.Items;
 import net.minecraft.core.util.collection.NamespaceID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import turniplabs.halplibe.HalpLibe;
 import turniplabs.halplibe.event.defs.CommonEvents;
+import turniplabs.halplibe.helper.EnvironmentHelper;
+import turniplabs.halplibe.helper.TextureHelper;
 import turniplabs.halplibe.helper.recipeBuilders.RecipeBuilderBlastFurnace;
 import turniplabs.halplibe.helper.recipeBuilders.RecipeBuilderFurnace;
 import turniplabs.halplibe.util.dependency.Key;
+
+import java.util.Map;
 
 import static net.minecraft.core.data.registry.Registries.NAMESPACES;
 
@@ -26,65 +35,95 @@ public class BetterThanFishing implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		CommonEvents.BEFORE_GAME_START.listen(Key.of(MOD_ID), this::beforeGameStart);
+		CommonEvents.AFTER_ITEM_INIT.listen(Key.of(MOD_ID), this::afterItemInit);
 		CommonEvents.AFTER_GAME_START.listen(Key.of(MOD_ID), this::afterGameStart);
 		LOGGER.info("Better Than Fishing initialized.");
 	}
 
 	public void beforeGameStart() {
+		if (!EnvironmentHelper.isMultiplayerServer()) {
+			TextureHelper.initializeAllFiles(MOD_ID, TextureRegistry.artAtlas, true);
+		}
+		BTFConfig.init();
 		NAMESPACES.register(MOD_ID, MOD_ID);
+		BTFPaintings.InitPaintings();
 		BlocksList.Init();
 		ItemsList.Init();
 
 		TileEntityDispatcher.addMapping(TileEntityChoppingBoard.class, NamespaceID.fromPool(MOD_ID, "cutting_table"));
+		TileEntityDispatcher.addMapping(TileEntityTackleBox.class, NamespaceID.fromPool(MOD_ID, "tackle_box"));
 
 
+	}
+
+	public void afterItemInit() {
+		FishGroups.init();
+		StardewCompat.defineFish();
+		FishDefinitions.init();
 	}
 
 	public void afterGameStart() {
 		registerChoppingRecipes();
+		registerFishingBobbers();
+		registerFishingBait();
+		registerWormBait(ItemsList.WORM);
 		registerFurnaceRecipes();
-		BTFAchievementPage.init();
+
+		StardewCompat.init();
 	}
 
 	private void registerChoppingRecipes() {
-		ChoppingRegistry.register(Items.FOOD_FISH_RAW, ItemsList.FOOD_FISH_FILLET_RAW, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_ANCHOVY_RAW, ItemsList.FOOD_FISH_FILLET_RAW, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_GOLDEN_CARP_RAW, ItemsList.FOOD_FISH_FILLET_RAW, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_KNIFEFISH_RAW, ItemsList.FOOD_FISH_FILLET_RAW, 2);
-		ChoppingRegistry.register(ItemsList.FOOD_SARDINE_RAW, ItemsList.FOOD_FISH_FILLET_RAW, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_SUNFISH_RAW, ItemsList.FOOD_FISH_FILLET_RAW, 2);
-		ChoppingRegistry.register(ItemsList.FOOD_TUNA_RAW, ItemsList.FOOD_FISH_FILLET_RAW, 2);
-		ChoppingRegistry.register(ItemsList.FOOD_CATFISH_RAW, ItemsList.FOOD_FISH_FILLET_RAW, 2);
-		ChoppingRegistry.register(ItemsList.FOOD_BOOTFISH_RAW, ItemsList.FOOD_FISH_FILLET_RAW, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_RED_MULLET_RAW, ItemsList.FOOD_FISH_FILLET_RAW, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_HERRING_RAW, ItemsList.FOOD_FISH_FILLET_RAW, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_HALIBUT_RAW, ItemsList.FOOD_FISH_FILLET_RAW, 2);
-		ChoppingRegistry.register(ItemsList.FOOD_SEA_BASS_RAW, ItemsList.FOOD_FISH_FILLET_RAW, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_PERCH_RAW, ItemsList.FOOD_FISH_FILLET_RAW, 2);
-		ChoppingRegistry.register(ItemsList.FOOD_TROUT_RAW, ItemsList.FOOD_FISH_FILLET_RAW, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_EEL_RAW, ItemsList.FOOD_EEL_FILLET_RAW, 1);
-
-		ChoppingRegistry.register(Items.FOOD_FISH_COOKED, ItemsList.FOOD_FISH_FILLET_COOKED, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_ANCHOVY_COOKED, ItemsList.FOOD_FISH_FILLET_COOKED, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_GOLDEN_CARP_COOKED, ItemsList.FOOD_FISH_FILLET_COOKED, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_KNIFEFISH_COOKED, ItemsList.FOOD_FISH_FILLET_COOKED, 2);
-		ChoppingRegistry.register(ItemsList.FOOD_SARDINE_COOKED, ItemsList.FOOD_FISH_FILLET_COOKED, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_SUNFISH_COOKED, ItemsList.FOOD_FISH_FILLET_COOKED, 2);
-		ChoppingRegistry.register(ItemsList.FOOD_TUNA_COOKED, ItemsList.FOOD_FISH_FILLET_COOKED, 2);
-		ChoppingRegistry.register(ItemsList.FOOD_CATFISH_COOKED, ItemsList.FOOD_FISH_FILLET_COOKED, 2);
-		ChoppingRegistry.register(ItemsList.FOOD_BOOTFISH_COOKED, ItemsList.FOOD_FISH_FILLET_COOKED, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_RED_MULLET_COOKED, ItemsList.FOOD_FISH_FILLET_COOKED, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_HERRING_COOKED, ItemsList.FOOD_FISH_FILLET_COOKED, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_HALIBUT_COOKED, ItemsList.FOOD_FISH_FILLET_COOKED, 2);
-		ChoppingRegistry.register(ItemsList.FOOD_SEA_BASS_COOKED, ItemsList.FOOD_FISH_FILLET_COOKED, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_PERCH_COOKED, ItemsList.FOOD_FISH_FILLET_COOKED, 2);
-		ChoppingRegistry.register(ItemsList.FOOD_TROUT_COOKED, ItemsList.FOOD_FISH_FILLET_COOKED, 1);
-		ChoppingRegistry.register(ItemsList.FOOD_EEL_COOKED, ItemsList.FOOD_EEL_FILLET_COOKED, 1);
-
+		FishRegistry.registerChopping();
 		ChoppingRegistry.register(ItemsList.FOOD_FISH_FILLET_RAW, ItemsList.FOOD_FISH_CHUNKS_RAW, 2);
+		ChoppingRegistry.register(ItemsList.FOOD_FISH_FILLET_COOKED, ItemsList.FOOD_FISH_CHUNKS_COOKED,2);
+	}
+
+	private void registerFishingBait() {
+		BaitRegistry.register(ItemsList.FOOD_FISH_CHUNKS_RAW)
+			.biteTime(0.7)
+			.category(FishCategory.JUNK, 0.6)
+			.item(ItemsList.FOOD_EEL_RAW, 3.0);
+		BaitRegistry.register(ItemsList.FOOD_SHRIMP_RAW)
+			.biteTime(0.8)
+			.item(ItemsList.FOOD_SHRIMP_RAW, 1.5)
+			.item(ItemsList.FOOD_CLAM, 2.0)
+			.item(ItemsList.FOOD_CRAB, 2.0)
+			.item(ItemsList.FOOD_EEL_RAW, 1.5);
+		BaitRegistry.register(ItemsList.WINGED_BAIT)
+			.biteTime(0.65)
+			.category(FishCategory.FISH,1.2)
+			.category(FishCategory.NON_FISH,0.8);
+		BaitRegistry.register(ItemsList.FOOD_CLAM)
+			.biteTime(0.9)
+			.category(FishCategory.TREASURE, 1.2);
+		BaitRegistry.register(ItemsList.FOOD_CRAB)
+			.biteTime(0.85)
+			.category(FishCategory.NON_FISH, 1.5)
+			.category(FishCategory.JUNK, 0.8);
+	}
+
+	public static void registerWormBait(Item worm) {
+		BaitRegistry.register(worm)
+			.biteTime(0.7)
+			.category(FishCategory.FISH, 1.2)
+			.category(FishCategory.NON_FISH, 1.4)
+			.category(FishCategory.JUNK, 0.6);
+	}
+
+	private void registerFishingBobbers() {
+		BobberRegistry.register(ItemsList.BOBBER_IRIDESCENT, "btf:particle/bobber/bobber_iridescent_float");
+		BobberRegistry.register(ItemsList.BOBBER_GOLD, "btf:particle/bobber/bobber_gold_float",
+			Map.of(FishCategory.TREASURE, 2.0));
+		BobberRegistry.register(ItemsList.BOBBER_OLD, "btf:particle/bobber/bobber_old_float",
+			Map.of(FishCategory.JUNK, 2.5));
+		BobberRegistry.register(ItemsList.BOBBER_CORK, "btf:particle/bobber/bobber_cork_float")
+			.catchWindow(1.5);
+		BobberRegistry.register(ItemsList.BOBBER_PLAIN, "minecraft:particle/bobber");
+		BobberRegistry.register(ItemsList.BOBBER_DYED, "btf:particle/bobber/bobber_float_").dyed();
 	}
 
 	private void registerFurnaceRecipes() {
+		FishRegistry.registerCooking(MOD_ID);
 		new RecipeBuilderFurnace(MOD_ID)
 			.setInput(ItemsList.FOOD_FISH_FILLET_RAW)
 			.create("fish_fillet_cooked", ItemsList.FOOD_FISH_FILLET_COOKED.getDefaultStack());
@@ -107,51 +146,6 @@ public class BetterThanFishing implements ModInitializer {
 			.setInput(ItemsList.GOLD_BROKEN_CAN)
 			.create("blast_can_to_gold", Items.INGOT_GOLD.getDefaultStack());
 		new RecipeBuilderFurnace(MOD_ID)
-			.setInput(ItemsList.FOOD_ANCHOVY_RAW)
-			.create("cooked_anchovy", ItemsList.FOOD_ANCHOVY_COOKED.getDefaultStack());
-		new RecipeBuilderFurnace(MOD_ID)
-			.setInput(ItemsList.FOOD_BOOTFISH_RAW)
-			.create("cooked_bootfish", ItemsList.FOOD_BOOTFISH_COOKED.getDefaultStack());
-		new RecipeBuilderFurnace(MOD_ID)
-			.setInput(ItemsList.FOOD_CATFISH_RAW)
-			.create("cooked_catfish", ItemsList.FOOD_CATFISH_COOKED.getDefaultStack());
-		new RecipeBuilderFurnace(MOD_ID)
-			.setInput(ItemsList.FOOD_EEL_RAW)
-			.create("cooked_eel", ItemsList.FOOD_EEL_COOKED.getDefaultStack());
-		new RecipeBuilderFurnace(MOD_ID)
-			.setInput(ItemsList.FOOD_GOLDEN_CARP_RAW)
-			.create("cooked_golden_carp", ItemsList.FOOD_GOLDEN_CARP_COOKED.getDefaultStack());
-		new RecipeBuilderFurnace(MOD_ID)
-			.setInput(ItemsList.FOOD_HALIBUT_RAW)
-			.create("cooked_halibut", ItemsList.FOOD_HALIBUT_COOKED.getDefaultStack());
-		new RecipeBuilderFurnace(MOD_ID)
-			.setInput(ItemsList.FOOD_HERRING_RAW)
-			.create("cooked_herring", ItemsList.FOOD_HERRING_COOKED.getDefaultStack());
-		new RecipeBuilderFurnace(MOD_ID)
-			.setInput(ItemsList.FOOD_KNIFEFISH_RAW)
-			.create("cooked_herring", ItemsList.FOOD_KNIFEFISH_COOKED.getDefaultStack());
-		new RecipeBuilderFurnace(MOD_ID)
-			.setInput(ItemsList.FOOD_PERCH_RAW)
-			.create("cooked_herring", ItemsList.FOOD_PERCH_COOKED.getDefaultStack());
-		new RecipeBuilderFurnace(MOD_ID)
-			.setInput(ItemsList.FOOD_RED_MULLET_RAW)
-			.create("cooked_herring", ItemsList.FOOD_RED_MULLET_COOKED.getDefaultStack());
-		new RecipeBuilderFurnace(MOD_ID)
-			.setInput(ItemsList.FOOD_SARDINE_RAW)
-			.create("cooked_herring", ItemsList.FOOD_SARDINE_COOKED.getDefaultStack());
-		new RecipeBuilderFurnace(MOD_ID)
-			.setInput(ItemsList.FOOD_SEA_BASS_RAW)
-			.create("cooked_herring", ItemsList.FOOD_SEA_BASS_COOKED.getDefaultStack());
-		new RecipeBuilderFurnace(MOD_ID)
-			.setInput(ItemsList.FOOD_SUNFISH_RAW)
-			.create("cooked_herring", ItemsList.FOOD_SUNFISH_COOKED.getDefaultStack());
-		new RecipeBuilderFurnace(MOD_ID)
-			.setInput(ItemsList.FOOD_TROUT_RAW)
-			.create("cooked_herring", ItemsList.FOOD_TROUT_COOKED.getDefaultStack());
-		new RecipeBuilderFurnace(MOD_ID)
-			.setInput(ItemsList.FOOD_TUNA_RAW)
-			.create("cooked_herring", ItemsList.FOOD_TUNA_COOKED.getDefaultStack());
-		new RecipeBuilderFurnace(MOD_ID)
 			.setInput(ItemsList.SEA_ALGAE)
 			.create("drying_sea_algae", ItemsList.FOOD_SEA_ALGAE_DRY.getDefaultStack());
 		new RecipeBuilderFurnace(MOD_ID)
@@ -160,6 +154,36 @@ public class BetterThanFishing implements ModInitializer {
 		new RecipeBuilderFurnace(MOD_ID)
 			.setInput(ItemsList.WHITE_ALGAE)
 			.create("drying_white_algae", ItemsList.FOOD_WHITE_ALGAE_DRY.getDefaultStack());
+		new RecipeBuilderFurnace(MOD_ID)
+			.setInput(ItemsList.FOOD_FISH_CHUNKS_RAW)
+			.create("fish_chunks_cooked", ItemsList.FOOD_FISH_CHUNKS_COOKED.getDefaultStack());
+		new RecipeBuilderFurnace(MOD_ID)
+			.setInput(ItemsList.FOOD_EEL_FILLET_RAW)
+			.create("eel_fillet_cooked", ItemsList.FOOD_EEL_FILLET_COOKED.getDefaultStack());
+		new RecipeBuilderFurnace(MOD_ID)
+			.setInput(ItemsList.FOOD_SHRIMP_RAW)
+			.create("shrimp_cooked", ItemsList.FOOD_SHRIMP_COOKED.getDefaultStack());
+		new RecipeBuilderFurnace(MOD_ID)
+			.setInput(ItemsList.RICE)
+			.create("rice_cracker", ItemsList.FOOD_RICE_CRACKER.getDefaultStack());
+		new RecipeBuilderFurnace(MOD_ID)
+			.setInput(ItemsList.FOOD_RAW_TEMPURA)
+			.create("tempura", ItemsList.FOOD_TEMPURA.getDefaultStack());
+		new RecipeBuilderFurnace(MOD_ID)
+			.setInput(ItemsList.FOOD_SEA_ALGAE_DRY)
+			.create("sea_algae_chips", ItemsList.FOOD_SEA_ALGAE_CHIPS.getDefaultStack());
+		new RecipeBuilderFurnace(MOD_ID)
+			.setInput(ItemsList.FOOD_RED_ALGAE_DRY)
+			.create("red_algae_chips", ItemsList.FOOD_RED_ALGAE_CHIPS.getDefaultStack());
+		new RecipeBuilderFurnace(MOD_ID)
+			.setInput(ItemsList.FOOD_WHITE_ALGAE_DRY)
+			.create("white_algae_chips", ItemsList.FOOD_WHITE_ALGAE_CHIPS.getDefaultStack());
+		new RecipeBuilderFurnace(MOD_ID)
+			.setInput(Items.FOOD_PORKCHOP_COOKED)
+			.create("not_fish_jerky", ItemsList.FOOD_JERKY.getDefaultStack());
+		new RecipeBuilderFurnace(MOD_ID)
+			.setInput(ItemsList.FOOD_FISH_FILLET_COOKED)
+			.create("fish_jerky", ItemsList.FOOD_FISH_JERKY.getDefaultStack());
 	}
 
 

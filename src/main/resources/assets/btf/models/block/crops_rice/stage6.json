@@ -1,0 +1,6 @@
+{
+  "parent": "btf:block/crops_rice/template",
+  "textures": {
+    "crop": "btf:block/crops_rice/stage6"
+  }
+}

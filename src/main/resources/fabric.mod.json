@@ -18,8 +18,8 @@
 		"main": [
 			"imbacrian.btf.BetterThanFishing"
 		],
-		"initModels": [
-			"imbacrian.btf.models.CommonRenderer"
+		"client": [
+			"imbacrian.btf.BetterThanFishingClient"
 		],
 		"recipesReady": [
 			"imbacrian.btf.BTFRecipes"
@@ -31,7 +31,8 @@
 	"depends": {
 		"fabricloader": ">=${fabricloader}",
 		"minecraft": "*",
-		"java": ">=${java}"
+		"java": ">=${java}",
+		"halplibe" : ">=6.1.4+8.0"
 	},
 	"suggests": {
 		"modmenu": ">=${modmenu}"

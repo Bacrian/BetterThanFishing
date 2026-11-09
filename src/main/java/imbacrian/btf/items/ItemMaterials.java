@@ -21,4 +21,10 @@ public class ItemMaterials {
 		.setMiningLevel(3)
 		.setDamage(2)
 		.setBlockHitDelay(4);
+	public static final ToolMaterial flint = new ToolMaterial()
+		.setDurability(80)
+		.setEfficiency(2.0F, 4.0F)
+		.setMiningLevel(1)
+		.setDamage(2)
+		.setBlockHitDelay(4);
 }
